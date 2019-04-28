@@ -120,3 +120,32 @@ Create an HCO CustomResource, which creates the KubeVirt CR, launching KubeVirt.
 ```bash
 kubectl create -f deploy/converged/crds/hco.cr.yaml
 ```
+
+## Launching the HCO on a local cluster
+
+Lunch the HCO locally for testing, experimenting and developing.
+
+**NOTE:** no need to install any type of kubenetes cluster as a prerequisite.
+
+1. Navigate to the project's directory
+```
+$ cd <path>/hyperconverged-cluster-opertor
+```
+2. Remove an old cluster
+```
+$ make cluster-down
+```
+3. Create a new cluster
+```
+$ make cluster-up
+```
+4. Clean previous HCO deployment and re-deploy HCO \
+   (When making a change, execute only this command - no need to repeat steps 1-3)
+```
+$ make cluster-sync
+```
+### Command-Line Tool
+Use `./cluster/kubectl.sh` as the command-line tool. for example:
+```
+$ ./cluster/kubectl.sh get pods --all-namespaces
+```
