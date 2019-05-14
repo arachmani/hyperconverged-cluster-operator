@@ -36,7 +36,8 @@ cluster-clean:
 stageRegistry:
 	@REGISTRY_NAMESPACE=redhat-operators-stage ./hack/quay-registry.sh $(QUAY_USERNAME) $(QUAY_PASSWORD)
 
-.PHONY: start \
+.PHONY: 
+		start \
 		clean \
 		docker-build \
 		docker-build-operator \
